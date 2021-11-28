@@ -1,5 +1,6 @@
 ﻿using System;
 using FoodAPP.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +13,11 @@ namespace FoodAPP
             InitializeComponent();
 
             // MainPage = new MainPage();
-            MainPage = new LogInView();
+             MainPage = new LogInView();
+            // MainPage = new NavigationPage(new SettingsPage());
+            // MainPage = new ProductsView();
+
+         
          }
 
         protected override void OnStart()
