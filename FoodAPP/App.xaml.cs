@@ -13,10 +13,19 @@ namespace FoodAPP
             InitializeComponent();
 
             // MainPage = new MainPage();
-             MainPage = new LogInView();
+            // MainPage = new LogInView();
             // MainPage = new NavigationPage(new SettingsPage());
             // MainPage = new ProductsView();
 
+            string uname = Preferences.Get("Username", String.Empty);
+            if (String.IsNullOrEmpty(uname))
+            {
+                MainPage = new LogInView();
+            }
+            else
+            {
+                MainPage = new ProductsView();
+            }
          
          }
 
