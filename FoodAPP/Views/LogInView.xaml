@@ -2,20 +2,27 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:FoodAPP.ViewModels"
     x:Class="FoodAPP.Views.LogInView"
     BackgroundColor="#112B47"
-    
+
+    Visual="Material"
    >
 
+    <ContentPage.BindingContext>
+
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <Grid Padding="20" VerticalOptions="Center">
+         <Grid Padding="20" VerticalOptions="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
            </Grid.RowDefinitions>
 
         <StackLayout Grid.Row="0" VerticalOptions="Center">
-          <Image Source="pizzzzzza.png"
+         <Image Source="Buns.png"
                  WidthRequest="100" HeightRequest="200"/>
 
          <Label Text="Login" FontFamily="Bold" TextColor="Gray" FontSize="35" HorizontalOptions="Center"/>
@@ -23,11 +30,14 @@
      </StackLayout>
 
      <StackLayout Grid.Row="1" Spacing="10">
-         <Entry Placeholder="Enter Username" Text="{Binding Usernamae}" TextColor="White" PlaceholderColor="Gray"/>
-         <Entry Placeholder="Enter Password" Text="{Binding Password}" IsPassword="True" TextColor="White" PlaceholderColor="Gray"/>
+         <Entry Placeholder="Enter Username" Text="{Binding Username}" TextColor="Black" PlaceholderColor="Gray"/>
+         <Entry Placeholder="Enter Password" Text="{Binding Password}" IsPassword="True" TextColor="Black" PlaceholderColor="Gray"/>
 
          <Button Text="Login" HorizontalOptions="Center" BackgroundColor="Transparent" TextColor="White"
- WidthRequest="100" HeightRequest="50" CornerRadius="20" BorderColor="ForestGreen" BorderWidth="1.5" />
+ WidthRequest="100" HeightRequest="50" CornerRadius="20" BorderColor="ForestGreen" BorderWidth="1.5"
+                 Command="{Binding LoginCommand}"/>
+         
+
 
          <Label HorizontalOptions="Center">
          <Label.FormattedText>
@@ -41,8 +51,11 @@
 
          </Label>
 
-         <Button Text="Signup" HorizontalOptions="Center" BackgroundColor="Brown" TextColor="White" WidthRequest="100" CornerRadius="20"/>
+         <Button Text="Signup" HorizontalOptions="Center" BackgroundColor="Brown" TextColor="White" WidthRequest="100" CornerRadius="20"
+                 Command="{Binding RegisterCommand}"/>
      </StackLayout>
       </Grid>
+
+
     </ContentPage.Content>
 </ContentPage>
