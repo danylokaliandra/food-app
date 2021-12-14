@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using FoodAPP.Services;
+using FoodAPP.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+
 
 namespace FoodAPP.ViewModels
 {
@@ -107,7 +109,9 @@ namespace FoodAPP.ViewModels
                 if (Result)
                 {
                     Preferences.Set("Username", Username);
-                   // await Application.Current.MainPage.Navigation.PopModalAsync(new ProductsView());
+                    //  await Application.Current.MainPage.Navigation.PopModalAsync(new ProductsView());
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new ProductsView());
+                  
                 }
                 else
                 {
@@ -124,6 +128,13 @@ namespace FoodAPP.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        private bool ProductsView()
+      
+        
+        {
+            throw new NotImplementedException();
         }
     }
 }
