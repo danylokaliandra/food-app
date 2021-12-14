@@ -46,7 +46,7 @@ namespace FoodAPP.ViewModels
 
         private void RemoveItemsFromCart()
         {
-            var cis = new   CarItemService();
+            var cis = new   CartItemService();
             cis.RemoveItemsFromCart();
         }
 
